@@ -1,8 +1,8 @@
 # Concurrent Requests in Java
-This example shows three different ways of handling concurrent request execution using the DataStax Java driver.  
+This example shows three different ways of handling concurrent request execution with Apache Cassandra™ using the [Java DataStax Driver](https://docs.datastax.com/en/developer/java-driver/latest).  
 
 
-Contributors: [Olivier Michallat](https://github.com/olim7t), [Hsu-Kwang Hwang](https://github.com/hsuhwang) derived from [here](https://github.com/datastax/java-driver/tree/4.x/examples/src/main/java/com/datastax/oss/driver/examples/concurrent)
+Contributors: [Olivier Michallat](https://github.com/olim7t), [Hsu-Kwang Hwang](https://github.com/hsuhwang) - derived from [here](https://github.com/datastax/java-driver/tree/4.x/examples/src/main/java/com/datastax/oss/driver/examples/concurrent)
 ## Objectives
 
 * How to limit concurrent query executions with Cassandra in blocking and non-blocking ways. 
