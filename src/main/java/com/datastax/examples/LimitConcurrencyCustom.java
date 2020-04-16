@@ -15,10 +15,12 @@
  */
 package com.datastax.examples;
 
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.bindMarker;
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.insertInto;
+
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.CqlSessionBuilder;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
-
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
@@ -27,9 +29,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.bindMarker;
-import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.insertInto;
 
 /**
  * Creates a keyspace and table, and loads data using a multi-threaded approach.
@@ -123,7 +122,7 @@ public class LimitConcurrencyCustom {
 
     System.out.println(
         String.format(
-            "LimitConcurrencyCustom finished executing %s queries with a concurrency level of %s.",
+            "Finished executing %s queries with a concurrency level of %s.",
             insertsCounter.get(), CONCURRENCY_LEVEL));
     // Shutdown executor to free resources
     executor.shutdown();

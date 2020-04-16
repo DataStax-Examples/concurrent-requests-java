@@ -32,6 +32,6 @@
     <!-- adjust the driver's log verbosity; see
     https://docs.datastax.com/en/developer/java-driver/4.0/manual/core/logging/
     for more information -->
-    <logger name="com.datastax.oss.driver" level="WARN"/>
+    <logger name="com.datastax.oss.driver" level="INFO"/>
 
 </configuration>

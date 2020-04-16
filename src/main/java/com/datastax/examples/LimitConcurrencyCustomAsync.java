@@ -15,20 +15,20 @@
  */
 package com.datastax.examples;
 
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.bindMarker;
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.insertInto;
+
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.CqlSessionBuilder;
 import com.datastax.oss.driver.api.core.cql.AsyncResultSet;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.bindMarker;
-import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.insertInto;
+import java.util.function.BiConsumer;
 
 /**
  * Creates a keyspace and table, and loads data using an async API.
@@ -95,7 +95,7 @@ public class LimitConcurrencyCustomAsync {
 
     System.out.println(
         String.format(
-            "LimitConcurrencyCustomAsync finished executing %s queries with a concurrency level of %s.",
+            "Finished executing %s queries with a concurrency level of %s.",
             INSERTS_COUNTER.get(), CONCURRENCY_LEVEL));
   }
 
@@ -127,6 +127,7 @@ public class LimitConcurrencyCustomAsync {
         .executeAsync(pst.bind().setUuid("id", UUID.randomUUID()).setInt("value", counter))
         .toCompletableFuture()
         .whenComplete(
+            (BiConsumer<AsyncResultSet, Throwable>)
                 (asyncResultSet, throwable) -> {
                   if (throwable == null) {
                     // When the Feature completes and there is no exception - increment counter.
