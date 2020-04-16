@@ -25,6 +25,7 @@
     <description>A collection of examples to demonstrate Concurrent Execution for Apache Cassandra(R).</description>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <datastax-driver.version>4.5.1</datastax-driver.version>
     </properties>
 
