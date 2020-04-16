@@ -15,17 +15,19 @@
  */
 package com.datastax.examples;
 
-import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.bindMarker;
-import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.insertInto;
-
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.config.DefaultDriverOption;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
+import com.datastax.oss.driver.internal.core.session.throttling.ConcurrencyLimitingRequestThrottler;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.bindMarker;
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.insertInto;
 
 /**
  * Creates a keyspace and tables, and loads data using Async API into them.
@@ -96,7 +98,7 @@ public class LimitConcurrencyRequestThrottler {
 
     System.out.println(
         String.format(
-            "Finished executing %s queries with a concurrency level of %s.",
+            "LimitConcurrencyRequestThrottler finished executing %s queries with a concurrency level of %s.",
             pending.size(),
             session
                 .getContext()
