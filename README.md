@@ -3,7 +3,7 @@ This example shows three different ways of handling concurrent request execution
 [Java DataStax Driver](https://docs.datastax.com/en/developer/java-driver/latest).  
 
 
-Contributors: [Olivier Michallat](https://github.com/olim7t), [Hsu-Kwang Hwang](https://github.com/hsuhwang) - derived from 
+Contributors: [Olivier Michallat](https://github.com/olim7t), [Hsu-Kwang Hwang](https://github.com/hsuhwang), [Tomasz Lelek](https://github.com/tomekl007) - derived from 
 [here](https://github.com/datastax/java-driver/tree/4.x/examples/src/main/java/com/datastax/oss/driver/examples/concurrent)
 ## Objectives
 
